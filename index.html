@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POP ONタレントスケジュール表</title>
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%231e3a5f%22/><text y=%22.9em%22 font-size=%2280%22 fill=%22white%22>C</text></svg>">
+    <link rel="icon" href="favicon.jpg">
     <style>
         * {
             margin: 0;
@@ -1554,8 +1553,10 @@
 
 
         // ===== データ =====
+        // 今日の日付 (YYYY-MM-DD形式)
+        const todayStr = new Date().toISOString().split('T')[0];
         // 入力中のデータをローカルストレージから復元、なければ初期値
-        let poponSchedules = JSON.parse(localStorage.getItem('vlab_popon_inputs') || '[{"date": "", "titleNum": "1", "titleLetter": "a"}]');
+        let poponSchedules = JSON.parse(localStorage.getItem('vlab_popon_inputs') || `[{"date": "${todayStr}", "titleNum": "1", "titleLetter": "a"}]`);
         let vspSchedules = JSON.parse(localStorage.getItem('vlab_vsp_inputs') || '[{"announceDate": "", "eventDate": "", "castName": ""}]');
 
         let registeredItems = JSON.parse(localStorage.getItem('vlab_registered') || '[]');
